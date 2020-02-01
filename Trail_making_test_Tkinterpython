@@ -1,0 +1,553 @@
+from tkinter import *
+import tkinter as tk
+#import Tkinter
+from PIL import Image, ImageTk 
+import time
+
+counter = 0;
+class Window(Frame):
+	def __init__(self, master=None):
+		Frame.__init__(self, master)
+		self.master = master
+		self.pack(fill=BOTH, expand=1)
+		#root.configure(background='deep sky blue')
+		self.configure(background='snow')
+				   
+		text = tk.Button(self,text ="1",bg = "pale green",command= self.coun_num)
+		#text = tk.Button(self)
+		#text = Label(self, text="1")
+		text.place(x=200,y=590)
+						
+		text2 = tk.Button(self,text ="2",bg = "bisque", command= self.coun_num2)
+		#text2 = Label(self, text="2")
+		text2.place(x=400,y=450)
+		
+		text3 = tk.Button(self,text ="3",bg = "pale green",command= self.coun_num3)
+		#text3 = Label(self, text="3")
+		text3.place(x=350,y=330)
+		
+		
+		text4 = tk.Button(self,text ="4",bg = "orange2",command= self.coun_num4)
+		#text4 = Label(self, text="4")
+		text4.place(x=550,y=280)
+		
+		text5 = tk.Button(self,text ="5",bg = "violetRed1",command= self.coun_num5)
+		#text5 = Label(self, text="5")
+		text5.place(x=510,y=150)
+		
+		text6 = tk.Button(self,text ="6",bg = "orange2",command= self.coun_num6)
+		#text6 = Label(self, text="6")
+		text6.place(x=400,y=40)
+		
+		text7 = tk.Button(self,text ="7",bg = "cyan",command= self.coun_num7)
+		#text7 = Label(self, text="7")
+		text7.place(x=210,y=60)
+		
+		text8 = tk.Button(self,text ="8",bg = "tomato2",command= self.coun_num8)
+		#text8 = Label(self, text="8")
+		text8.place(x=160,y=238)
+		
+		
+		text9 = tk.Button(self,text ="9",bg = "plum2",command= self.createNewWindow)
+		text9.place(x=150,y=398)
+		 
+	def createNewWindow(self):
+		print("9")
+		Windowsecond = tk.Toplevel(app)  
+		Windowsecond.geometry("680x800")
+		Windowsecond.configure(background='sky blue')	
+		
+		text = tk.Button(Windowsecond,text ="1",bg = "pale green",command=self.coun_num1)
+		text.place(x=100,y=190)
+		
+		text2 = tk.Button(Windowsecond,text ="2",bg = "azure",command= self.coun_num2)
+		text2.place(x=100,y=650)
+		
+		text3 = tk.Button(Windowsecond,text ="3",bg = "orange",command= self.coun_num3)
+		text3.place(x=450,y=430)
+		
+		
+		text4 = tk.Button(Windowsecond,text ="4",bg = "purple1",command= self.coun_num4)
+		text4.place(x=550,y=20)
+		
+		text5 = tk.Button(Windowsecond,text ="5",bg = "green2",command= self.coun_num5)
+		text5.place(x=210,y=490)
+		
+		text6 = tk.Button(Windowsecond,text ="6",bg = "yellow",command= self.coun_num6)
+		text6.place(x=380,y=40)
+		
+		text7 = tk.Button(Windowsecond,text ="7",bg = "pink3",command= self.coun_num7)
+		text7.place(x=40,y=400)
+		
+		text8 = tk.Button(Windowsecond,text ="8",bg = "honeydew2",command= self.coun_num8)
+		text8.place(x=600,y=650)
+		
+		
+		text9 = tk.Button(Windowsecond,text ="9",bg = "salmon1",command= self.createNewWindow2)
+		text9.place(x=250,y=188)
+		
+	
+	def createNewWindow2(Windowsecond):
+		print('9')
+		Windowsecond2 = tk.Toplevel(app)  
+		Windowsecond2.geometry("680x800")
+		Windowsecond2.configure(background='light yellow')	
+		
+		text = tk.Button(Windowsecond2,text ="1",bg = "orange",command = Windowsecond.coun_num1)
+		text.place(x=200,y=190)
+		
+		textA = tk.Button(Windowsecond2,text ="A",bg = "pale green",command = Windowsecond.coun_numA)
+		textA.place(x=300,y=390)
+		
+		text2 = tk.Button(Windowsecond2,text ="2",bg = "purple1",command= Windowsecond.coun_num2)
+		text2.place(x=50,y=50)
+		
+		textB = tk.Button(Windowsecond2,text ="B",bg = "salmon1",command= Windowsecond.coun_numB)
+		textB.place(x=100,y=250)
+		
+		text3 = tk.Button(Windowsecond2,text ="3",bg = "yellow",command= Windowsecond.coun_num3)
+		text3.place(x=550,y=530)
+		
+		textC = tk.Button(Windowsecond2,text ="C",bg = "pink3",command= Windowsecond.coun_numC)
+		textC.place(x=400,y=250)
+		
+		text4 = tk.Button(Windowsecond2,text ="4",bg = "orange",command= Windowsecond.coun_num4)
+		text4.place(x=550,y=220)
+		
+		textD = tk.Button(Windowsecond2,text ="D",bg = "red",command= Windowsecond.coun_numD)
+		textD.place(x=300,y=650)
+		
+		text5 = tk.Button(Windowsecond2,text ="5",bg = "green2",command= Windowsecond.coun_num5)
+		text5.place(x=210,y=90)
+		
+		textE = tk.Button(Windowsecond2,text ="E",bg = "coral1",command= Windowsecond.coun_numE)
+		textE.place(x=450,y=50)
+		
+		text6 = tk.Button(Windowsecond2,text ="6",bg = "deep sky blue",command= Windowsecond.coun_num6)
+		text6.place(x=380,y=40)
+		
+		textF = tk.Button(Windowsecond2,text ="F",bg = "thistle1",command= Windowsecond.coun_numF)
+		textF.place(x=550,y=40)
+		
+		text7 = tk.Button(Windowsecond2,text ="7",bg = "pink3",command= Windowsecond.coun_num7)
+		text7.place(x=40,y=400)
+		
+		textG = tk.Button(Windowsecond2,text ="G",bg = "khaki",command= Windowsecond.coun_numG)
+		textG.place(x=100,y=650)
+		
+		text8 = tk.Button(Windowsecond2,text ="8",bg = "honeydew2",command= Windowsecond.coun_num8)
+		text8.place(x=600,y=650)
+		
+		textH = tk.Button(Windowsecond2,text ="H",bg = "tan1",command= Windowsecond.coun_numH)
+		textH.place(x=510,y=150)
+		
+		text9 = tk.Button(Windowsecond2,text ="9",bg = "maroon1",command =Windowsecond.createNewWindow3)
+		text9.place(x=290,y=308)
+		
+		
+		
+	def createNewWindow3(Windowsecond2):
+		#print('done')
+		Windowsecond3 = tk.Toplevel(app)  
+		Windowsecond3.geometry("300x300")
+		Windowsecond3.configure(background='plum2')		
+		
+		
+		label = Label(Windowsecond3, text = "Muchas felicidades, lo hiciste muy bien \n ¿Deseas empezar la segunda parte?",bg = "red")
+		label.place(x=100,y=100)
+		label.pack()
+		timefinal=time.gmtime()
+		print(timefinal)
+		
+		textno = tk.Button(Windowsecond3,text ="no",bg = "green1",command =Windowsecond2.createNewWindow4)
+		textno.place(x=140,y=150)
+		
+		textsi = tk.Button(Windowsecond3,text ="si",bg = "maroon1",command =Windowsecond2.createNewWindow4)
+		textsi.place(x=100,y=150)
+		
+		
+	
+	def createNewWindow4(Windowsecond2):
+		#print('done')
+		Windowsecond4 = tk.Toplevel(app)  
+		Windowsecond4.geometry("680x800")
+		Windowsecond4.configure(background='snow')	
+	
+			
+		#en esta ventana empezamos el sifuiente test
+		
+		labeli = Label(Windowsecond4, text = "Menciona la \n palabra",foreground="gray1",bg ='snow')
+		labeli.place(x=70,y=50)
+				
+		label1 = Label(Windowsecond4, text = "Rojo",foreground="gray1",bg ='snow')
+		label1.place(x=100,y=100)
+		
+		label2 = Label(Windowsecond4, text = "Verde",foreground="gray1",bg ='snow')
+		label2.place(x=100,y=120)
+		
+		label3 = Label(Windowsecond4, text = "Amarrillo",foreground="gray1",bg ='snow')
+		label3.place(x=100,y=140)
+		
+		label2 = Label(Windowsecond4, text = "Azul",foreground="gray1",bg ='snow')
+		label2.place(x=100,y=160)
+		
+		
+		labeli = Label(Windowsecond4, text = "Menciona el \ncolor de la palabra",foreground="gray1",bg ='snow')
+		labeli.place(x=250,y=50)
+		
+		label1 = Label(Windowsecond4, text = "Rojo",foreground="green1",bg ='snow')
+		label1.place(x=280,y=100)
+		
+		label2 = Label(Windowsecond4, text = "Verde",foreground="orange1",bg ='snow')
+		label2.place(x=280,y=120)
+		
+		label3 = Label(Windowsecond4, text = "Amarrillo",foreground="red",bg ='snow')
+		label3.place(x=280,y=140)
+		
+		label2 = Label(Windowsecond4, text = "Azul",foreground="yellow1",bg ='snow')
+		label2.place(x=280,y=160)
+		
+		buttons = tk.Button(Windowsecond4,text ="siguiete",bg = "honeydew2",command =Windowsecond2.createNewWindow5)
+		buttons.place(x=450,y=100)
+		
+		
+		
+		label.pack()
+		
+		
+	
+	def createNewWindow5(Windowsecond4):
+		#print('done')
+		Windowsecond5 = tk.Toplevel(app)  
+		Windowsecond5.geometry("680x800")
+		Windowsecond5.configure(background='snow')
+		
+		
+			
+		#labeli = Label(Windowsecond4, text = "Menciona la \n palabra",foreground="gray1",bg ='snow')
+		#labeli.place(x=70,y=50)
+				
+		label1 = Label(Windowsecond5, text = "Rojo",foreground="salmon4",bg ='snow')
+		label1.place(x=100,y=100)
+		
+		label2 = Label(Windowsecond5, text = "Verde",foreground="red2",bg ='snow')
+		label2.place(x=100,y=120)
+		
+		label3 = Label(Windowsecond5, text = "Amarrillo",foreground="green3",bg ='snow')
+		label3.place(x=100,y=140)
+		
+		label4 = Label(Windowsecond5, text = "Azul",foreground="blue2",bg ='snow')
+		label4.place(x=100,y=160)
+		
+		
+		labeli = Label(Windowsecond5, text = "Menciona el \ncolor",foreground="gray1",bg ='snow')
+		labeli.place(x=250,y=50)
+		
+		label5 = Label(Windowsecond5, text = "Rojo",foreground="green1",bg ='snow')
+		label5.place(x=280,y=100)
+		
+		label6 = Label(Windowsecond5, text = "Verde",foreground="orange1",bg ='snow')
+		label6.place(x=280,y=120)
+		
+		label7 = Label(Windowsecond5, text = "Amarrillo",foreground="red",bg ='snow')
+		label7.place(x=280,y=140)
+		
+		label8 = Label(Windowsecond5, text = "Azul",foreground="yellow1",bg ='snow')
+		label8.place(x=280,y=160)
+	
+		
+		label9 = Label(Windowsecond5, text = "Azul",foreground="green2",bg ='snow')
+		label9.place(x=100,y=200)
+		
+		label10 = Label(Windowsecond5, text = "Verde",foreground="dark violet",bg ='snow')
+		label10.place(x=100,y=220)
+		
+		label11 = Label(Windowsecond5, text = "rojo",foreground="red",bg ='snow')
+		label11.place(x=100,y=240)
+		
+		label12 = Label(Windowsecond5, text = "rojo",foreground="blue2",bg ='snow')
+		label12.place(x=100,y=260)
+		
+		
+		
+		label13 = Label(Windowsecond5, text = "Azul",foreground="green2",bg ='snow')
+		label13.place(x=280,y=200)
+		
+		label14 = Label(Windowsecond5, text = "Verde",foreground="dark violet",bg ='snow')
+		label14.place(x=280,y=220)
+		
+		label15 = Label(Windowsecond5, text = "Amarrillo",foreground="pink1",bg ='snow')
+		label15.place(x=280,y=240)
+		
+		label16 = Label(Windowsecond5, text = "Amarillo",foreground="yellow",bg ='snow')
+		label16.place(x=280,y=260)
+		
+		
+	
+		
+		
+		
+		
+		label9 = Label(Windowsecond5, text = "verde",foreground="orange1",bg ='snow')
+		label9.place(x=500,y=100)
+		
+		label10 = Label(Windowsecond5, text = "Amarillo",foreground="saddle brown",bg ='snow')
+		label10.place(x=500,y=120)
+		
+		label11 = Label(Windowsecond5, text = "Azul",foreground="green2",bg ='snow')
+		label11.place(x=500,y=140)
+		
+		label12 = Label(Windowsecond5, text = "Verde",foreground="red",bg ='snow')
+		label12.place(x=500,y=160)
+		
+		
+		
+		label13 = Label(Windowsecond5, text = "Amarillo",foreground="blue2",bg ='snow')
+		label13.place(x=500,y=200)
+		
+		label14 = Label(Windowsecond5, text = "Azul",foreground="DarkOrange1",bg ='snow')
+		label14.place(x=500,y=220)
+		
+		label15 = Label(Windowsecond5, text = "Amarrillo",foreground="yellow",bg ='snow')
+		label15.place(x=500,y=240)
+		
+		label16 = Label(Windowsecond5, text = "Cafe",foreground="pink1",bg ='snow')
+		label16.place(x=500,y=260)
+		
+		
+		
+		
+		
+		
+		
+		buttons = tk.Button(Windowsecond5,text ="siguiete",bg = "honeydew2",command =Windowsecond4.createNewWindow6)
+		buttons.place(x=270,y=400)
+		
+		
+		
+		
+		
+		
+		label.pack()
+		
+		
+		
+		
+		
+		
+		
+		
+	def createNewWindow6(Windowsecond5):
+		#print('done')
+		Windowsecond6 = tk.Toplevel(app)  
+		Windowsecond6.geometry("680x800")
+		Windowsecond6.configure(background='snow')
+			
+			
+		
+		label1 = Label(Windowsecond6, text = "Rojo",foreground="salmon4",bg ='snow')
+		label1.place(x=100,y=100)
+		
+		label2 = Label(Windowsecond6, text = "Verde",foreground="red2",bg ='snow')
+		label2.place(x=100,y=120)
+		
+		label3 = Label(Windowsecond6, text = "Amarrillo",foreground="green3",bg ='snow')
+		label3.place(x=100,y=140)
+		
+		label4 = Label(Windowsecond6, text = "Azul",foreground="blue2",bg ='snow')
+		label4.place(x=100,y=160)
+		
+		
+		labeli = Label(Windowsecond6, text = "Menciona la \npalabra",foreground="gray1",bg ='snow')
+		labeli.place(x=250,y=50)
+		
+		label5 = Label(Windowsecond6, text = "Rojo",foreground="green1",bg ='snow')
+		label5.place(x=280,y=100)
+		
+		label6 = Label(Windowsecond6, text = "Verde",foreground="orange1",bg ='snow')
+		label6.place(x=280,y=120)
+		
+		label7 = Label(Windowsecond6, text = "Amarrillo",foreground="red",bg ='snow')
+		label7.place(x=280,y=140)
+		
+		label8 = Label(Windowsecond6, text = "Azul",foreground="yellow1",bg ='snow')
+		label8.place(x=280,y=160)
+	
+		
+		label9 = Label(Windowsecond6, text = "Azul",foreground="green2",bg ='snow')
+		label9.place(x=100,y=200)
+		
+		label10 = Label(Windowsecond6, text = "Verde",foreground="dark violet",bg ='snow')
+		label10.place(x=100,y=220)
+		
+		label11 = Label(Windowsecond6, text = "rojo",foreground="red",bg ='snow')
+		label11.place(x=100,y=240)
+		
+		label12 = Label(Windowsecond6, text = "rojo",foreground="blue2",bg ='snow')
+		label12.place(x=100,y=260)
+		
+		
+		
+		label13 = Label(Windowsecond6, text = "Azul",foreground="green2",bg ='snow')
+		label13.place(x=280,y=200)
+		
+		label14 = Label(Windowsecond6, text = "Verde",foreground="dark violet",bg ='snow')
+		label14.place(x=280,y=220)
+		
+		label15 = Label(Windowsecond6, text = "Amarrillo",foreground="pink1",bg ='snow')
+		label15.place(x=280,y=240)
+		
+		label16 = Label(Windowsecond6, text = "Amarillo",foreground="yellow",bg ='snow')
+		label16.place(x=280,y=260)
+		
+		
+	
+		
+		
+		
+		
+		label9 = Label(Windowsecond6, text = "verde",foreground="orange1",bg ='snow')
+		label9.place(x=500,y=100)
+		
+		label10 = Label(Windowsecond6, text = "Amarillo",foreground="saddle brown",bg ='snow')
+		label10.place(x=500,y=120)
+		
+		label11 = Label(Windowsecond6, text = "Azul",foreground="green2",bg ='snow')
+		label11.place(x=500,y=140)
+		
+		label12 = Label(Windowsecond6, text = "Verde",foreground="red",bg ='snow')
+		label12.place(x=500,y=160)
+		
+		
+		
+		label13 = Label(Windowsecond6, text = "Amarillo",foreground="blue2",bg ='snow')
+		label13.place(x=500,y=200)
+		
+		label14 = Label(Windowsecond6, text = "Azul",foreground="DarkOrange1",bg ='snow')
+		label14.place(x=500,y=220)
+		
+		label15 = Label(Windowsecond6, text = "Amarrillo",foreground="yellow",bg ='snow')
+		label15.place(x=500,y=240)
+		
+		label16 = Label(Windowsecond6, text = "Cafe",foreground="pink1",bg ='snow')
+		label16.place(x=500,y=260)
+		
+		
+		
+		
+		
+		
+		
+		buttons = tk.Button(Windowsecond6,text ="terminar",bg = "honeydew2")
+		buttons.place(x=270,y=400)
+		
+		
+		
+		
+		
+		
+		#label.pack()	
+			
+			
+			
+			
+		
+		
+		
+		
+		
+		
+		
+	def clickAddButton(self):
+		print("correct")
+	
+	
+	def startTime(self):
+		#start_time = time.time()
+		#localtime()
+		timestart=time.gmtime()
+		print(timestart)
+		
+		
+	def coun_num(self):
+		#print(self)
+		print("1")
+		timestart=time.gmtime()
+		print(timestart)	
+		#return(num)
+	
+	def coun_num1(self):
+		print("1")
+		
+	def coun_num2(self):
+		print("2")
+	
+	def coun_num3(self):
+		print("3")
+	
+	def coun_num4(self):
+		print("4")	
+		
+	def coun_num5(self):
+		print("5")
+	
+	def coun_num6(self):
+		print("6")
+		
+	def coun_num7(self):
+		print("7")
+		
+	def coun_num8(self):
+		print("8")
+		
+	def coun_num9(self):
+		print("2")						
+	
+	
+	#para la segunda ventana, para que no despliegue le reloj
+	
+	def coun_num1(Windowsecond):
+		print("1")
+		
+		
+	#creamos la parte para desplegar las letras.
+	
+	def coun_numA(self):
+		print("A")
+		
+	def coun_numB(self):
+		print("B")
+	
+	def coun_numC(self):
+		print("C")
+	
+	def coun_numD(self):
+		print("D")	
+		
+	def coun_numE(self):
+		print("E")
+	
+	def coun_numF(self):
+		print("F")
+		
+	def coun_numG(self):
+		print("G")
+		
+	def coun_numH(self):
+		print("H")
+		
+	
+	
+root = Tk()
+app = Window(root)
+root.wm_title("Trail Making Test")
+root.geometry("680x800")
+#root.mainloop()
+
+
+
+#buttonExample.pack()
+
+#app = tk.Tk()
+#app.geometry("600x600")
+app.mainloop()
