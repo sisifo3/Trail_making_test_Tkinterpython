@@ -4,33 +4,155 @@ from PIL import Image, ImageTk
 import time
 
 
+global edad
+#edad = 0
 class Window(Frame):
+	 	
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
 		self.master = master
 		self.pack(fill=BOTH, expand=1)
 		self.configure(background='snow')
+		#global edad
+		#self.text0 = tk.Button(self,text ="",bg = "pale green",command =self.com_test)
+		#self.text0.place(x=220,y=160)	
+		self.label0 = Label(self, text = "Bienvenido prueba de atención",bg = "snow")
+		self.label0.place(x=220,y=10)
+		self.label1 = Label(self, text ="La siguiente prueba consiste en dos Test", bg = "snow",anchor=W)
+		self.label1.place(x=200,y=30)
+		self.label2 = Label(self, text ="Trail Making Test", bg = "snow",anchor=W)
+		self.label2.place(x=250,y=50)
+		self.label3 = Label(self, text ="Test of Stroop ", bg = "snow",anchor=W)
+		self.label3.place(x=250,y=70)
+		self.label5 = Label(self, text ="En la primera parte el participante deberá", bg = "snow",anchor=W)
+		self.label5.place(x=190,y=90)
+		self.label6 = Label(self, text ="seleccionar de manera ascendente ", bg = "snow",anchor=W)
+		self.label6.place(x=200,y=110)
+		self.label7 = Label(self, text ="1--->2---->3---->4---->5---->6....9", bg = "snow",anchor=W)
+		self.label7.place(x=200,y=130)
+		self.label8 = Label(self, text ="En cada sección de la prueba se tomará el tiempo y el numero de aciertos.", bg = "snow",anchor=W)
+		self.label8.place(x=100,y=150)
 		
-		self.text1 = tk.Button(self,text ="1",bg = "pale green",command =lambda *args:self.coun_num1(1))
-		self.text1.place(x=200,y=190)
-		self.text2 = tk.Button(self,text ="2",bg = "bisque", command= lambda *args:self.coun_num2(2))
-		self.text2.place(x=400,y=450)
-		self.text3 = tk.Button(self,text ="3",bg = "pale green",command= lambda *args:self.coun_num2(3))
-		self.text3.place(x=350,y=330)
-		self.text4 = tk.Button(self,text ="4",bg = "orange2",command= lambda *args:self.coun_num2(4))
-		self.text4.place(x=550,y=280)
-		self.text5 = tk.Button(self,text ="5",bg = "violetRed1",command= lambda *args:self.coun_num2(5))
-		self.text5.place(x=510,y=150)
-		self.text6 = tk.Button(self,text ="6",bg = "orange2",command= lambda *args:self.coun_num2(6))
-		self.text6.place(x=400,y=40)
-		self.text7 = tk.Button(self,text ="7",bg = "cyan",command= lambda *args:self.coun_num2(7))
-		self.text7.place(x=210,y=60)
-		self.text8 = tk.Button(self,text ="8",bg = "tomato2",command= lambda *args:self.coun_num2(8))
-		self.text8.place(x=160,y=238)
-		self.text9 = tk.Button(self,text ="9",bg = "plum2",command= self.del_all)
-		self.text9.place(x=150,y=398)
+		self.label10 = Label(self, text ="Por favor seleccione la edad del participante.", bg = "snow",anchor=W)
+		self.label10.place(x=200,y=150)
+		
+		#we inicialiate v like int 
+		v = IntVar()
+		v.set(1)
+		self.radio_a=Radiobutton(self, text="11-13", variable=v, value=1,bg ="snow")#.pack(anchor=SE)
+		self.radio_a.place(x=300,y=250)
+		self.radio_b=Radiobutton(self, text="8-10", variable=v, value=2,bg = "snow")
+		self.radio_b.place(x=300,y=290)
+		
+
+	
+		
+		self.label9 = Label(self, text ="Cuando el participante este listo, seleccione la opción comenzar.", bg = "snow",anchor=W)
+		self.label9.place(x=150,y=450)
+		self.bottonsi = tk.Button(self,text ="Comenzar",bg = "light blue",command = lambda *args:self.edad_print(v))#del_all_zero
+		self.bottonsi.place(x=290,y=550)
+		
+	
 			
+	def edad_print(self,v):
+		#print(v.get())
+		value_v = v.get()
+		if value_v ==1:
+			#pepe = 11 - 13
+			print("pepe")
+			Window.del_all_zero_pepe(self)
+		if value_v ==2:
+			#jose = 8 - 10
+			print('jose')	
+			Window.del_all_zero_jose(self)
 		
+		
+	def del_all_zero_pepe(self):
+		self.label0.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		#self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label9.destroy()
+		self.label10.destroy()
+		self.bottonsi.destroy()
+		self.radio_a.destroy()
+		self.radio_b.destroy()
+		#self.botton10.destroy()
+		#self.botton11.destroy() 
+		#Window.colrs_secd(self)	
+		Window.com_test_pepe(self)
+	
+	
+	def del_all_zero_jose(self):
+		self.label0.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		#self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label9.destroy()
+		self.label10.destroy()
+		self.bottonsi.destroy()
+		self.radio_a.destroy()
+		self.radio_b.destroy()
+		#self.botton10.destroy()
+		#self.botton11.destroy() 
+		#Window.colrs_secd(self)	
+		Window.com_test_jose(self)	 
+				
+				
+	def del_all_zero(self):
+		self.label0.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		#self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label9.destroy()
+		self.label10.destroy()
+		self.bottonsi.destroy()
+		self.botton10.destroy()
+		self.botton11.destroy() 
+		#Window.colrs_secd(self)	
+		Window.com_test(self)
+	
+	def del_all_pepe(self):
+		self.text1.destroy() #destrui un botton necesito crear otro
+		self.text2.destroy()
+		self.text3.destroy()
+		self.text4.destroy()
+		self.text5.destroy()
+		self.text6.destroy()
+		self.text7.destroy()
+		self.text8.destroy()
+		self.text9.destroy()
+		#necesitamos llamar una funcion que cree de nuevo los botones en diferentes posiciones
+		Window.create_button_pepe(self)
+	
+	def del_all_jose(self):
+		self.text1.destroy() #destrui un botton necesito crear otro
+		self.text2.destroy()
+		self.text3.destroy()
+		self.text4.destroy()
+		self.text5.destroy()
+		self.text6.destroy()
+		self.text7.destroy()
+		self.text8.destroy()
+		self.text9.destroy()
+		#necesitamos llamar una funcion que cree de nuevo los botones en diferentes posiciones
+		Window.create_button_jose(self)
+	
 		
 	def del_all(self):
 		self.text1.destroy() #destrui un botton necesito crear otro
@@ -45,6 +167,39 @@ class Window(Frame):
 		#necesitamos llamar una funcion que cree de nuevo los botones en diferentes posiciones
 		Window.create_button(self) 
 	
+	def del_all_two_pepe(self):
+		self.text1.destroy() #destrui un botton necesito crear otro
+		self.text2.destroy()
+		self.text3.destroy()
+		self.text4.destroy()
+		self.text5.destroy()
+		self.text6.destroy()
+		self.text7.destroy()
+		self.text8.destroy()
+		self.text9.destroy()
+		#necesitamos llamar una funcion que cree de nuevo los botones en diferentes posiciones
+		Window.creat_num_lett_pepe(self)
+		Window.emerg_wind_instr_pepe(self)
+	
+	
+	def del_all_two_jose(self):
+		self.text1.destroy() #destrui un botton necesito crear otro
+		self.text2.destroy()
+		self.text3.destroy()
+		self.text4.destroy()
+		self.text5.destroy()
+		self.text6.destroy()
+		self.text7.destroy()
+		self.text8.destroy()
+		self.text9.destroy()
+		#necesitamos llamar una funcion que cree de nuevo los botones en diferentes posiciones
+		#Window.creat_num_lett(self)
+		#Window.emerg_wind_instr(self)
+		Window.emerg_wind_jose(self)
+		Window.colrs_fist_jose(self)
+	
+	
+	
 	def del_all_two(self):
 		self.text1.destroy() #destrui un botton necesito crear otro
 		self.text2.destroy()
@@ -57,6 +212,32 @@ class Window(Frame):
 		self.text9.destroy()
 		#necesitamos llamar una funcion que cree de nuevo los botones en diferentes posiciones
 		Window.creat_num_lett(self)
+		Window.emerg_wind_instr(self)
+	
+	
+	def del_all_tree_pepe(self):
+		self.text1.destroy() #destrui un botton necesito crear otro
+		self.text2.destroy()
+		self.text3.destroy()
+		self.text4.destroy()
+		self.text5.destroy()
+		self.text6.destroy()
+		self.text7.destroy()
+		self.text8.destroy()
+		self.text9.destroy()
+		self.textA.destroy() 
+		self.textB.destroy() 
+		self.textC.destroy()
+		self.textD.destroy()
+		self.textE.destroy()
+		self.textF.destroy()
+		self.textG.destroy()
+		self.textH.destroy()
+		#llamamos a la ventana emergente.
+		Window.emerg_wind_pepe(self)
+		#es necesario al mismo tiempo llamar a la funcion para las lettras.
+		Window.colrs_fist_pepe(self)
+	
 	
 	def del_all_tree(self):
 		self.text1.destroy() #destrui un botton necesito crear otro
@@ -81,6 +262,40 @@ class Window(Frame):
 		#es necesario al mismo tiempo llamar a la funcion para las lettras.
 		Window.colrs_fist(self)
 	
+	def del_all_four_pepe(self):
+		self.label0.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label9.destroy()
+		self.label10.destroy() 
+		self.bottonno.destroy() 
+		self.bottonsi.destroy() 
+		Window.colrs_secd_pepe(self)
+	
+	def del_all_four_jose(self):
+		self.label0.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label9.destroy()
+		self.label10.destroy() 
+		self.bottonno.destroy() 
+		self.bottonsi.destroy() 
+		Window.colrs_secd_jose(self) 
+	
+	
+	
 	def del_all_four(self):
 		self.label0.destroy() #destrui un botton necesito crear otro
 		self.label1.destroy()
@@ -98,38 +313,367 @@ class Window(Frame):
 		Window.colrs_secd(self) 
 	
 	def del_all_five(self):
-		self.label0.destroy() #destrui un botton necesito crear otro
+		self.label45.destroy() #destrui un botton necesito crear otro
 		self.label1.destroy()
 		self.label2.destroy()
 		self.label3.destroy()
 		self.label4.destroy()
-		self.label45.destroy()
 		self.label5.destroy()
 		self.label6.destroy()
 		self.label7.destroy()
 		self.label8.destroy()
-		self.label9.destroy()
-		self.label10.destroy() 
-		self.label11.destroy() #destrui un botton necesito crear otro
-		self.label12.destroy()
-		self.label13.destroy()
-		self.label14.destroy()
-		self.label15.destroy()
-		self.label16.destroy()
-		self.label17.destroy()
-		self.label18.destroy()
-		self.label19.destroy()
-		self.label20.destroy()
-		self.label21.destroy() 
-		self.label22.destroy()
-		self.label23.destroy()
-		self.label24.destroy()
 		self.label25.destroy()
 		self.bottonno.destroy() 
 		self.bottonsi.destroy() 
-		#Window.colrs_secd(self)	
+		Window.colrs_tre(self)
+	
+	def del_all_five_pepe(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy() 
+		Window.colrs_tre_pepe(self)
+	
+	def del_all_five_jose(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy() 
+		Window.colrs_tre_jose(self)
+
+	def del_all_six_pepe(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy() 
+		Window.colrs_four_pepe(self)
+
+	def del_all_six_jose(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy() 
+		#Window.colrs_four(self)
+		Window.wrk_col_jose(self)
 	
 		
+	def del_all_six(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy() 
+		Window.colrs_four(self)
+	
+	def del_all_seven_pepe(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy()
+		Window.wrk_col(self)
+	
+	
+	def del_all_seven(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy()
+		Window.wrk_col(self)
+	
+		
+	def del_all_eight_pepe(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy()
+		Window.wrk_col_two_pepe(self)
+	
+	
+	def del_all_eight_jose(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy()
+		Window.wrk_col_two_jose(self)
+	
+	
+	
+		
+	def del_all_eight(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy()
+		Window.wrk_col_two(self)	 
+	
+	def del_all_nine_pepe(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy()
+		Window.wrk_col_tre_pepe(self)
+	
+	
+	def del_all_nine_jose(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy()
+		#Window.wrk_col_tre(self)
+		Window.last_window(self)	
+		Window.finalizar_prueba_jose(self)
+	
+	
+	
+	def del_all_nine(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy()
+		Window.wrk_col_tre(self)
+
+	def del_all_ten_pepe(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy()
+		Window.last_window(self)	
+		Window.finalizar_prueba_pepe(self)
+
+
+		
+	def del_all_ten(self):
+		self.label45.destroy() #destrui un botton necesito crear otro
+		self.label1.destroy()
+		self.label2.destroy()
+		self.label3.destroy()
+		self.label4.destroy()
+		self.label5.destroy()
+		self.label6.destroy()
+		self.label7.destroy()
+		self.label8.destroy()
+		self.label25.destroy()
+		self.bottonno.destroy() 
+		self.bottonsi.destroy()
+		Window.last_window(self)	
+		Window.finalizar_prueba(self)	
+		
+	def com_test_pepe(self):
+		self.text1 = tk.Button(self,text ="1",bg = "pale green",command =lambda *args:self.coun_num1(1))
+		self.text1.place(x=200,y=190)
+		self.text2 = tk.Button(self,text ="2",bg = "bisque", command= lambda *args:self.coun_num2(2))
+		self.text2.place(x=400,y=450)
+		self.text3 = tk.Button(self,text ="3",bg = "pale green",command= lambda *args:self.coun_num2(3))
+		self.text3.place(x=350,y=330)
+		self.text4 = tk.Button(self,text ="4",bg = "orange2",command= lambda *args:self.coun_num2(4))
+		self.text4.place(x=550,y=280)
+		self.text5 = tk.Button(self,text ="5",bg = "violetRed1",command= lambda *args:self.coun_num2(5))
+		self.text5.place(x=510,y=150)
+		self.text6 = tk.Button(self,text ="6",bg = "orange2",command= lambda *args:self.coun_num2(6))
+		self.text6.place(x=400,y=40)
+		self.text7 = tk.Button(self,text ="7",bg = "cyan",command= lambda *args:self.coun_num2(7))
+		self.text7.place(x=210,y=60)
+		self.text8 = tk.Button(self,text ="8",bg = "tomato2",command= lambda *args:self.coun_num2(8))
+		self.text8.place(x=160,y=238)
+		self.text9 = tk.Button(self,text ="9",bg = "plum2",command= self.del_all_pepe)
+		self.text9.place(x=150,y=398)
+	
+	def com_test_jose(self):
+		self.text1 = tk.Button(self,text ="1",bg = "pale green",command =lambda *args:self.coun_num1(1))
+		self.text1.place(x=200,y=190)
+		self.text2 = tk.Button(self,text ="2",bg = "bisque", command= lambda *args:self.coun_num2(2))
+		self.text2.place(x=400,y=450)
+		self.text3 = tk.Button(self,text ="3",bg = "pale green",command= lambda *args:self.coun_num2(3))
+		self.text3.place(x=350,y=330)
+		self.text4 = tk.Button(self,text ="4",bg = "orange2",command= lambda *args:self.coun_num2(4))
+		self.text4.place(x=550,y=280)
+		self.text5 = tk.Button(self,text ="5",bg = "violetRed1",command= lambda *args:self.coun_num2(5))
+		self.text5.place(x=510,y=150)
+		self.text6 = tk.Button(self,text ="6",bg = "orange2",command= lambda *args:self.coun_num2(6))
+		self.text6.place(x=400,y=40)
+		self.text7 = tk.Button(self,text ="7",bg = "cyan",command= lambda *args:self.coun_num2(7))
+		self.text7.place(x=210,y=60)
+		self.text8 = tk.Button(self,text ="8",bg = "tomato2",command= lambda *args:self.coun_num2(8))
+		self.text8.place(x=160,y=238)
+		self.text9 = tk.Button(self,text ="9",bg = "plum2",command= self.del_all_jose)
+		self.text9.place(x=150,y=398)
+		
+	def com_test(self):
+		self.text1 = tk.Button(self,text ="1",bg = "pale green",command =lambda *args:self.coun_num1(1))
+		self.text1.place(x=200,y=190)
+		self.text2 = tk.Button(self,text ="2",bg = "bisque", command= lambda *args:self.coun_num2(2))
+		self.text2.place(x=400,y=450)
+		self.text3 = tk.Button(self,text ="3",bg = "pale green",command= lambda *args:self.coun_num2(3))
+		self.text3.place(x=350,y=330)
+		self.text4 = tk.Button(self,text ="4",bg = "orange2",command= lambda *args:self.coun_num2(4))
+		self.text4.place(x=550,y=280)
+		self.text5 = tk.Button(self,text ="5",bg = "violetRed1",command= lambda *args:self.coun_num2(5))
+		self.text5.place(x=510,y=150)
+		self.text6 = tk.Button(self,text ="6",bg = "orange2",command= lambda *args:self.coun_num2(6))
+		self.text6.place(x=400,y=40)
+		self.text7 = tk.Button(self,text ="7",bg = "cyan",command= lambda *args:self.coun_num2(7))
+		self.text7.place(x=210,y=60)
+		self.text8 = tk.Button(self,text ="8",bg = "tomato2",command= lambda *args:self.coun_num2(8))
+		self.text8.place(x=160,y=238)
+		self.text9 = tk.Button(self,text ="9",bg = "plum2",command= self.del_all)
+		self.text9.place(x=150,y=398)
+	
+	def create_button_pepe(self):
+		#creamos los nuevos botones en diferentes lugares
+		self.text1 = tk.Button(self,text ="1",bg = "pale green",command=lambda *args:self.coun_num1(1))
+		self.text1.place(x=100,y=190)
+		self.text2 = tk.Button(self,text ="2",bg = "azure",command= lambda *args:self.coun_num2(2))
+		self.text2.place(x=100,y=650)
+		self.text3 = tk.Button(self,text ="3",bg = "pale green",command=lambda *args:self.coun_num2(3))
+		self.text3.place(x=100,y=100)
+		self.text4 = tk.Button(self,text ="4",bg = "purple1",command= lambda *args:self.coun_num2(4))
+		self.text4.place(x=550,y=20)
+		self.text5 = tk.Button(self,text ="5",bg = "green2",command= lambda *args:self.coun_num2(5))
+		self.text5.place(x=210,y=490)
+		self.text6 = tk.Button(self,text ="6",bg = "yellow",command= lambda *args:self.coun_num2(6))
+		self.text6.place(x=380,y=40)
+		self.text7 = tk.Button(self,text ="7",bg = "pink3",command= lambda *args:self.coun_num2(7))
+		self.text7.place(x=40,y=400)
+		self.text8 = tk.Button(self,text ="8",bg = "honeydew2",command= lambda *args:self.coun_num2(8))
+		self.text8.place(x=600,y=650)
+		self.text9 = tk.Button(self,text ="9",bg = "salmon1",command= self.del_all_two_pepe)
+		self.text9.place(x=250,y=188)		
+
+
+	def create_button_jose(self):
+		#creamos los nuevos botones en diferentes lugares
+		self.text1 = tk.Button(self,text ="1",bg = "pale green",command=lambda *args:self.coun_num1(1))
+		self.text1.place(x=100,y=190)
+		self.text2 = tk.Button(self,text ="2",bg = "azure",command= lambda *args:self.coun_num2(2))
+		self.text2.place(x=100,y=650)
+		self.text3 = tk.Button(self,text ="3",bg = "pale green",command=lambda *args:self.coun_num2(3))
+		self.text3.place(x=100,y=100)
+		self.text4 = tk.Button(self,text ="4",bg = "purple1",command= lambda *args:self.coun_num2(4))
+		self.text4.place(x=550,y=20)
+		self.text5 = tk.Button(self,text ="5",bg = "green2",command= lambda *args:self.coun_num2(5))
+		self.text5.place(x=210,y=490)
+		self.text6 = tk.Button(self,text ="6",bg = "yellow",command= lambda *args:self.coun_num2(6))
+		self.text6.place(x=380,y=40)
+		self.text7 = tk.Button(self,text ="7",bg = "pink3",command= lambda *args:self.coun_num2(7))
+		self.text7.place(x=40,y=400)
+		self.text8 = tk.Button(self,text ="8",bg = "honeydew2",command= lambda *args:self.coun_num2(8))
+		self.text8.place(x=600,y=650)
+		self.text9 = tk.Button(self,text ="9",bg = "salmon1",command= self.del_all_two_jose)
+		self.text9.place(x=250,y=188)
+	
+	
+	
 	def create_button(self):
 		#creamos los nuevos botones en diferentes lugares
 		self.text1 = tk.Button(self,text ="1",bg = "pale green",command=lambda *args:self.coun_num1(1))
@@ -151,7 +695,41 @@ class Window(Frame):
 		self.text9 = tk.Button(self,text ="9",bg = "salmon1",command= self.del_all_two)
 		self.text9.place(x=250,y=188)		
 
-	
+	def creat_num_lett_pepe(self):
+		self.text1 = tk.Button(self,text ="1",bg = "orange",command = lambda *args:self.coun_num1(1))
+		self.text1.place(x=200,y=190)
+		self.textA = tk.Button(self,text ="A",bg = "pale green",command =lambda *args: self.coun_num2("A"))
+		self.textA.place(x=300,y=390)
+		self.text2 = tk.Button(self,text ="2",bg = "purple1",command= lambda *args:self.coun_num2(2))
+		self.text2.place(x=50,y=50)
+		self.textB = tk.Button(self,text ="B",bg = "salmon1",command= lambda *args:self.coun_num2("B"))
+		self.textB.place(x=100,y=250)
+		self.text3 = tk.Button(self,text ="3",bg = "yellow",command= lambda *args:self.coun_num2(3))
+		self.text3.place(x=550,y=530)
+		self.textC = tk.Button(self,text ="C",bg = "pink3",command= lambda *args:self.coun_num2("C"))
+		self.textC.place(x=400,y=250)
+		self.text4 = tk.Button(self,text ="4",bg = "orange",command= lambda *args:self.coun_num2(4))
+		self.text4.place(x=550,y=220)
+		self.textD = tk.Button(self,text ="D",bg = "red",command= lambda *args:self.coun_num2("D"))
+		self.textD.place(x=300,y=650)
+		self.text5 = tk.Button(self,text ="5",bg = "green2",command= lambda *args:self.coun_num2(5))
+		self.text5.place(x=210,y=90)
+		self.textE = tk.Button(self,text ="E",bg = "coral1",command=lambda *args: self.coun_num2("E"))
+		self.textE.place(x=450,y=50)
+		self.text6 = tk.Button(self,text ="6",bg = "deep sky blue",command= lambda *args:self.coun_num2(6))
+		self.text6.place(x=380,y=40)
+		self.textF = tk.Button(self,text ="F",bg = "thistle1",command= lambda *args:self.coun_num2("F"))
+		self.textF.place(x=550,y=40)
+		self.text7 = tk.Button(self,text ="7",bg = "pink3",command= lambda *args:self.coun_num2(7))
+		self.text7.place(x=40,y=400)
+		self.textG = tk.Button(self,text ="G",bg = "khaki",command=lambda *args: self.coun_num2("G"))
+		self.textG.place(x=100,y=650)
+		self.text8 = tk.Button(self,text ="8",bg = "honeydew2",command= lambda *args:self.coun_num2(8))
+		self.text8.place(x=600,y=650)
+		self.textH = tk.Button(self,text ="H",bg = "tan1",command= lambda *args:self.coun_num2("H"))
+		self.textH.place(x=510,y=150)
+		self.text9 = tk.Button(self,text ="9",bg = "maroon1",command =self.del_all_tree_pepe)
+		self.text9.place(x=290,y=308)
 	
 	def creat_num_lett(self):
 		self.text1 = tk.Button(self,text ="1",bg = "orange",command = lambda *args:self.coun_num1(1))
@@ -189,6 +767,140 @@ class Window(Frame):
 		self.text9 = tk.Button(self,text ="9",bg = "maroon1",command =self.del_all_tree)
 		self.text9.place(x=290,y=308)
 	
+	
+	def emerg_wind_first_instr_pepe(self):
+		Window_fir_ins = tk.Toplevel(app)  
+		Window_fir_ins.geometry("500x500")
+		Window_fir_ins.configure(background='snow')		
+		label = Label(Window_fir_ins, text = "Bienvenido",bg = "snow")
+		label.place(x=230,y=10)
+		label1 = Label(Window_fir_ins, text ="La siguiente prueba consiste en dos Test", bg = "snow",anchor=W)
+		label1.place(x=30,y=30)
+		label2 = Label(Window_fir_ins, text ="Trail Making Test", bg = "snow",anchor=W)
+		label2.place(x=30,y=50)
+		label3 = Label(Window_fir_ins, text ="Test of Stroop ", bg = "snow",anchor=W)
+		label3.place(x=30,y=70)
+		label5 = Label(Window_fir_ins, text ="En la primera parte el participante deberá", bg = "snow",anchor=W)
+		label5.place(x=30,y=90)
+		label6 = Label(Window_fir_ins, text ="seleccionar de manera ascendente ", bg = "snow",anchor=W)
+		label6.place(x=30,y=110)
+		label5 = Label(Window_fir_ins, text ="1--->2---->3---->4---->5---->6....9", bg = "snow",anchor=W)
+		label5.place(x=30,y=130)
+		bottonsi = tk.Button(Window_fir_ins,text ="Comenzar",bg = "light blue",command =Window_fir_ins.destroy)
+		bottonsi.place(x=170,y=250)
+	
+	
+	
+	def emerg_wind_first_instr(self):
+		Window_fir_ins = tk.Toplevel(app)  
+		Window_fir_ins.geometry("500x500")
+		Window_fir_ins.configure(background='snow')		
+		label = Label(Window_fir_ins, text = "Bienvenido",bg = "snow")
+		label.place(x=230,y=10)
+		label1 = Label(Window_fir_ins, text ="La siguiente prueba consiste en dos Test", bg = "snow",anchor=W)
+		label1.place(x=30,y=30)
+		label2 = Label(Window_fir_ins, text ="Trail Making Test", bg = "snow",anchor=W)
+		label2.place(x=30,y=50)
+		label3 = Label(Window_fir_ins, text ="Test of Stroop ", bg = "snow",anchor=W)
+		label3.place(x=30,y=70)
+		label5 = Label(Window_fir_ins, text ="En la primera parte el participante deberá", bg = "snow",anchor=W)
+		label5.place(x=30,y=90)
+		label6 = Label(Window_fir_ins, text ="seleccionar de manera ascendente ", bg = "snow",anchor=W)
+		label6.place(x=30,y=110)
+		label5 = Label(Window_fir_ins, text ="1--->2---->3---->4---->5---->6....9", bg = "snow",anchor=W)
+		label5.place(x=30,y=130)
+		bottonsi = tk.Button(Window_fir_ins,text ="Comenzar",bg = "light blue",command =Window_fir_ins.destroy)
+		bottonsi.place(x=170,y=250)
+	
+	
+	
+	
+	def emerg_wind_instr_pepe(self):
+		Window_ins = tk.Toplevel(app)  
+		Window_ins.geometry("500x500")
+		Window_ins.configure(background='snow')		
+		label = Label(Window_ins, text = "Indicaciones",bg = "snow")
+		label.place(x=230,y=10)
+		label1 = Label(Window_ins, text ="En la siguiente sección de la prueba, se muestran un conjunto", bg = "snow",anchor=W)
+		label1.place(x=30,y=30)
+		label2 = Label(Window_ins, text ="de letras y números, el participante debera seleccionarlos", bg = "snow",anchor=W)
+		label2.place(x=30,y=50)
+		label3 = Label(Window_ins, text ="como se muestra a continuación. ", bg = "snow",anchor=W)
+		label3.place(x=30,y=70)
+		label5 = Label(Window_ins, text ="1--->A---->2---->B---->3---->C....", bg = "snow",anchor=W)
+		label5.place(x=30,y=110)
+		label6 = Label(Window_ins, text ="Cuando este listo para comenzar, seleccione Aceptar ", bg = "snow",anchor=W)
+		label6.place(x=30,y=200)
+		bottonsi = tk.Button(Window_ins,text ="Aceptar",bg = "light blue",command =Window_ins.destroy)
+		bottonsi.place(x=170,y=250)
+	
+	
+	def emerg_wind_instr(self):
+		Window_ins = tk.Toplevel(app)  
+		Window_ins.geometry("500x500")
+		Window_ins.configure(background='snow')		
+		label = Label(Window_ins, text = "Indicaciones",bg = "snow")
+		label.place(x=230,y=10)
+		label1 = Label(Window_ins, text ="En la siguiente sección de la prueba, se muestran un conjunto", bg = "snow",anchor=W)
+		label1.place(x=30,y=30)
+		label2 = Label(Window_ins, text ="de letras y números, el participante debera seleccionarlos", bg = "snow",anchor=W)
+		label2.place(x=30,y=50)
+		label3 = Label(Window_ins, text ="como se muestra a continuación. ", bg = "snow",anchor=W)
+		label3.place(x=30,y=70)
+		label5 = Label(Window_ins, text ="1--->A---->2---->B---->3---->C....", bg = "snow",anchor=W)
+		label5.place(x=30,y=110)
+		label6 = Label(Window_ins, text ="Cuando este listo para comenzar, seleccione Aceptar ", bg = "snow",anchor=W)
+		label6.place(x=30,y=200)
+		bottonsi = tk.Button(Window_ins,text ="Aceptar",bg = "light blue",command =Window_ins.destroy)
+		bottonsi.place(x=170,y=250)
+	
+	def emerg_wind_pepe(self):
+		Window_emrg = tk.Toplevel(app)  
+		Window_emrg.geometry("500x500")
+		Window_emrg.configure(background='snow')		
+		label = Label(Window_emrg, text = "Parte 2",bg = "snow")
+		label.place(x=230,y=10)
+		label1 = Label(Window_emrg, text ="En la segunda parte de la prueba, se muestran un conjunto", bg = "snow",anchor=W)
+		label1.place(x=30,y=30)
+		label2 = Label(Window_emrg, text ="de palabras, estas de diferentes colores, el participante", bg = "snow",anchor=W)
+		label2.place(x=30,y=50)
+		label3 = Label(Window_emrg, text ="dependiendo de las indicaciones, tendrá que decir el color ", bg = "snow",anchor=W)
+		label3.place(x=30,y=70)
+		label4 = Label(Window_emrg, text ="o leer la palabra, el evaluador  deberá seleccionar si la ", bg = "snow",anchor=W)
+		label4.place(x=30,y=90)
+		label5 = Label(Window_emrg, text ="respuesta del participante es correcta o incorrecta", bg = "snow",anchor=W)
+		label5.place(x=30,y=110)
+		label6 = Label(Window_emrg, text ="Comenzar", bg = "snow",anchor=W)
+		label6.place(x=170,y=200)
+		bottonno = tk.Button(Window_emrg,text ="no",bg = "light blue")
+		bottonno.place(x=200,y=250)
+		bottonsi = tk.Button(Window_emrg,text ="si",bg = "light blue",command =Window_emrg.destroy)
+		bottonsi.place(x=170,y=250)
+	
+	
+	def emerg_wind_jose(self):
+		Window_emrg = tk.Toplevel(app)  
+		Window_emrg.geometry("500x500")
+		Window_emrg.configure(background='snow')		
+		label = Label(Window_emrg, text = "Parte 2",bg = "snow")
+		label.place(x=230,y=10)
+		label1 = Label(Window_emrg, text ="En la segunda parte de la prueba, se muestran un conjunto", bg = "snow",anchor=W)
+		label1.place(x=30,y=30)
+		label2 = Label(Window_emrg, text ="de palabras, estas de diferentes colores, el participante", bg = "snow",anchor=W)
+		label2.place(x=30,y=50)
+		label3 = Label(Window_emrg, text ="dependiendo de las indicaciones, tendrá que decir el color ", bg = "snow",anchor=W)
+		label3.place(x=30,y=70)
+		label4 = Label(Window_emrg, text ="o leer la palabra, el evaluador  deberá seleccionar si la ", bg = "snow",anchor=W)
+		label4.place(x=30,y=90)
+		label5 = Label(Window_emrg, text ="respuesta del participante es correcta o incorrecta", bg = "snow",anchor=W)
+		label5.place(x=30,y=110)
+		label6 = Label(Window_emrg, text ="Comenzar", bg = "snow",anchor=W)
+		label6.place(x=170,y=200)
+		bottonno = tk.Button(Window_emrg,text ="no",bg = "light blue")
+		bottonno.place(x=200,y=250)
+		bottonsi = tk.Button(Window_emrg,text ="si",bg = "light blue",command =Window_emrg.destroy)
+		bottonsi.place(x=170,y=250)
+	
 	def emerg_wind(self):
 		Window_emrg = tk.Toplevel(app)  
 		Window_emrg.geometry("500x500")
@@ -211,6 +923,91 @@ class Window(Frame):
 		bottonno.place(x=200,y=250)
 		bottonsi = tk.Button(Window_emrg,text ="si",bg = "light blue",command =Window_emrg.destroy)
 		bottonsi.place(x=170,y=250)
+		
+		
+	def last_window(self):
+		Window_last = tk.Toplevel(app)  
+		Window_last.geometry("500x500")
+		Window_last.configure(background='snow')		
+		label = Label(Window_last, text = "Resultados",bg = "snow")
+		label.place(x=230,y=10)
+		label1 = Label(Window_last, text ="Parte1", bg = "snow",anchor=W)
+		label1.place(x=30,y=30)
+		label2 = Label(Window_last, text ="Tiempo de inicio : 1:10 pm", bg = "snow",anchor=W)
+		label2.place(x=30,y=50)
+		label3 = Label(Window_last, text ="Tiempo final: 1:25 pm ", bg = "snow",anchor=W)
+		label3.place(x=30,y=70)
+		label5 = Label(Window_last, text ="Parte2", bg = "snow",anchor=W)
+		label5.place(x=30,y=90)
+		label6 = Label(Window_last, text ="Tiempo de inicio: 1:26 pm ", bg = "snow",anchor=W)
+		label6.place(x=30,y=110)
+		label7 = Label(Window_last, text ="Tiempo final: 1:35 pm", bg = "snow",anchor=W)
+		label7.place(x=30,y=130)
+		label8 = Label(Window_last, text ="Número de aciertos: 6 aciertos", bg = "snow",anchor=W)
+		label8.place(x=30,y=130)
+		bottonsi = tk.Button(Window_last,text ="finalizar",bg = "light blue",command =Window_last.destroy)
+		bottonsi.place(x=170,y=250)
+		
+		
+	def colrs_fist_pepe(self):
+		self.label0 = Label(self, text = "Menciona la \n palabra",foreground="gray1",bg ='snow')
+		self.label0.place(x=70,y=50)
+		self.label1 = Label(self, text = "Rojo",foreground="gray1",bg ='snow')
+		self.label1.place(x=100,y=100)
+		self.label2 = Label(self, text = "Verde",foreground="gray1",bg ='snow')
+		self.label2.place(x=100,y=120)
+		self.label3 = Label(self, text = "Amarrillo",foreground="gray1",bg ='snow')
+		self.label3.place(x=100,y=140)
+		self.label4 = Label(self, text = "Azul",foreground="gray1",bg ='snow')
+		self.label4.place(x=100,y=160)
+		self.label5 = Label(self, text = "Menciona el \ncolor de la palabra",foreground="gray1",bg ='snow')
+		self.label5.place(x=250,y=50)
+		self.label6 = Label(self, text = "Rojo",foreground="green1",bg ='snow')
+		self.label6.place(x=280,y=100)
+		self.label7 = Label(self, text = "Verde",foreground="orange1",bg ='snow')
+		self.label7.place(x=280,y=120)
+		self.label8 = Label(self, text = "Amarrillo",foreground="red",bg ='snow')
+		self.label8.place(x=280,y=140)
+		self.label9 = Label(self, text = "Azul",foreground="yellow1",bg ='snow')
+		self.label9.place(x=280,y=160)
+		self.label10 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label10.place(x=170,y=200)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=200,y=250)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command =self.del_all_four_pepe)
+		self.bottonsi.place(x=170,y=250)
+	
+	
+	
+		
+	
+	def colrs_fist_jose(self):
+		self.label0 = Label(self, text = "Menciona la \n palabra",foreground="gray1",bg ='snow')
+		self.label0.place(x=70,y=50)
+		self.label1 = Label(self, text = "Rojo",foreground="gray1",bg ='snow')
+		self.label1.place(x=100,y=100)
+		self.label2 = Label(self, text = "Verde",foreground="gray1",bg ='snow')
+		self.label2.place(x=100,y=120)
+		self.label3 = Label(self, text = "Amarrillo",foreground="gray1",bg ='snow')
+		self.label3.place(x=100,y=140)
+		self.label4 = Label(self, text = "Azul",foreground="gray1",bg ='snow')
+		self.label4.place(x=100,y=160)
+		self.label5 = Label(self, text = "Menciona el \ncolor de la palabra",foreground="gray1",bg ='snow')
+		self.label5.place(x=250,y=50)
+		self.label6 = Label(self, text = "Rojo",foreground="green1",bg ='snow')
+		self.label6.place(x=280,y=100)
+		self.label7 = Label(self, text = "Verde",foreground="orange1",bg ='snow')
+		self.label7.place(x=280,y=120)
+		self.label8 = Label(self, text = "Amarrillo",foreground="red",bg ='snow')
+		self.label8.place(x=280,y=140)
+		self.label9 = Label(self, text = "Azul",foreground="yellow1",bg ='snow')
+		self.label9.place(x=280,y=160)
+		self.label10 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label10.place(x=170,y=200)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=200,y=250)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command =self.del_all_four_jose)
+		self.bottonsi.place(x=170,y=250)
 		
 	
 	
@@ -242,121 +1039,493 @@ class Window(Frame):
 		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command =self.del_all_four)
 		self.bottonsi.place(x=170,y=250)	
 	
-	def colrs_secd(self):
-		self.label1 = Label(self, text = "Rojo",foreground="salmon4",bg ='snow')
-		self.label1.place(x=100,y=100)
-		self.label2 = Label(self, text = "Verde",foreground="red2",bg ='snow')
-		self.label2.place(x=100,y=120)
-		self.label3 = Label(self, text = "Amarrillo",foreground="green3",bg ='snow')
-		self.label3.place(x=100,y=140)
-		self.label4 = Label(self, text = "Azul",foreground="blue2",bg ='snow')
-		self.label4.place(x=100,y=160)
+	
+	def colrs_secd_pepe(self):
 		self.label45 = Label(self, text = "Menciona el \ncolor",foreground="gray1",bg ='snow')
 		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Rojo",foreground="salmon4",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Verde",foreground="red2",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Amarrillo",foreground="green3",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Azul",foreground="blue2",bg ='snow')
+		self.label4.place(x=150,y=210)
 		self.label5 = Label(self, text = "Rojo",foreground="green1",bg ='snow')
-		self.label5.place(x=280,y=100)
+		self.label5.place(x=350,y=150)
 		self.label6 = Label(self, text = "Verde",foreground="orange1",bg ='snow')
-		self.label6.place(x=280,y=120)
+		self.label6.place(x=350,y=170)
 		self.label7 = Label(self, text = "Amarrillo",foreground="red",bg ='snow')
-		self.label7.place(x=280,y=140)
+		self.label7.place(x=350,y=190)
 		self.label8 = Label(self, text = "Azul",foreground="yellow1",bg ='snow')
-		self.label8.place(x=280,y=160)
-		self.label9 = Label(self, text = "Azul",foreground="green2",bg ='snow')
-		self.label9.place(x=100,y=200)
-		self.label10 = Label(self, text = "Verde",foreground="dark violet",bg ='snow')
-		self.label10.place(x=100,y=220)
-		self.label11 = Label(self, text = "rojo",foreground="red",bg ='snow')
-		self.label11.place(x=100,y=240)
-		self.label12 = Label(self, text = "rojo",foreground="blue2",bg ='snow')
-		self.label12.place(x=100,y=260)
-		self.label13 = Label(self, text = "Azul",foreground="green2",bg ='snow')
-		self.label13.place(x=280,y=200)
-		self.label14 = Label(self, text = "Verde",foreground="dark violet",bg ='snow')
-		self.label14.place(x=280,y=220)
-		self.label15 = Label(self, text = "Amarrillo",foreground="pink1",bg ='snow')
-		self.label15.place(x=280,y=240)
-		self.label16 = Label(self, text = "Amarillo",foreground="yellow",bg ='snow')
-		self.label16.place(x=280,y=260)
-		self.label17 = Label(self, text = "verde",foreground="orange1",bg ='snow')
-		self.label17.place(x=500,y=100)
-		self.label18 = Label(self, text = "Amarillo",foreground="saddle brown",bg ='snow')
-		self.label18.place(x=500,y=120)
-		self.label19 = Label(self, text = "Azul",foreground="green2",bg ='snow')
-		self.label19.place(x=500,y=140)
-		self.label20 = Label(self, text = "Verde",foreground="red",bg ='snow')
-		self.label20.place(x=500,y=160)
-		self.label21 = Label(self, text = "Amarillo",foreground="blue2",bg ='snow')
-		self.label21.place(x=500,y=200)
-		self.label22 = Label(self, text = "Azul",foreground="DarkOrange1",bg ='snow')
-		self.label22.place(x=500,y=220)
-		self.label23 = Label(self, text = "Amarrillo",foreground="yellow",bg ='snow')
-		self.label23.place(x=500,y=240)
-		self.label24 = Label(self, text = "Cafe",foreground="pink1",bg ='snow')
-		self.label24.place(x=500,y=260)
+		self.label8.place(x=350,y=210)
+		#boton
 		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
 		self.label25.place(x=270,y=350)
 		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
 		self.bottonno.place(x=300,y=400)
-		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_five)
-		self.bottonsi.place(x=270,y=400)	
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_five_pepe)
+		self.bottonsi.place(x=270,y=400)
 		
-	def colrs_tre(self):	
-		self.label1 = Label(self, text = "Rojo",foreground="salmon4",bg ='snow')
-		self.label1.place(x=100,y=100)
-		self.label2 = Label(self, text = "Verde",foreground="red2",bg ='snow')
-		self.label2.place(x=100,y=120)
-		self.label3 = Label(self, text = "Amarrillo",foreground="green3",bg ='snow')
-		self.label3.place(x=100,y=140)
-		self.label4 = Label(self, text = "Azul",foreground="blue2",bg ='snow')
-		self.label4.place(x=100,y=160)
-		self.label45 = Label(self, text = "Menciona la \npalabra",foreground="gray1",bg ='snow')
+	
+	def colrs_secd_jose(self):
+		self.label45 = Label(self, text = "Menciona el \ncolor",foreground="gray1",bg ='snow')
 		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Rojo",foreground="salmon4",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Verde",foreground="red2",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Amarrillo",foreground="green3",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Azul",foreground="blue2",bg ='snow')
+		self.label4.place(x=150,y=210)
 		self.label5 = Label(self, text = "Rojo",foreground="green1",bg ='snow')
-		self.label5.place(x=280,y=100)
+		self.label5.place(x=350,y=150)
 		self.label6 = Label(self, text = "Verde",foreground="orange1",bg ='snow')
-		self.label6.place(x=280,y=120)
+		self.label6.place(x=350,y=170)
 		self.label7 = Label(self, text = "Amarrillo",foreground="red",bg ='snow')
-		self.label7.place(x=280,y=140)
+		self.label7.place(x=350,y=190)
 		self.label8 = Label(self, text = "Azul",foreground="yellow1",bg ='snow')
-		self.label8.place(x=280,y=160)
-		self.label9 = Label(self, text = "Azul",foreground="green2",bg ='snow')
-		self.label9.place(x=100,y=200)
-		self.label10 = Label(self, text = "Verde",foreground="dark violet",bg ='snow')
-		self.label10.place(x=100,y=220)
-		self.label11 = Label(self, text = "rojo",foreground="red",bg ='snow')
-		self.label11.place(x=100,y=240)
-		self.label12 = Label(self, text = "rojo",foreground="blue2",bg ='snow')
-		self.label12.place(x=100,y=260)
-		self.label13 = Label(self, text = "Azul",foreground="green2",bg ='snow')
-		self.label13.place(x=280,y=200)
-		self.label14 = Label(self, text = "Verde",foreground="dark violet",bg ='snow')
-		self.label14.place(x=280,y=220)
-		self.label15 = Label(self, text = "Amarrillo",foreground="pink1",bg ='snow')
-		self.label15.place(x=280,y=240)
-		self.label16 = Label(self, text = "Amarillo",foreground="yellow",bg ='snow')
-		self.label16.place(x=280,y=260)
-		self.label17 = Label(self, text = "verde",foreground="orange1",bg ='snow')
-		self.label17.place(x=500,y=100)
-		self.label18 = Label(self, text = "Amarillo",foreground="saddle brown",bg ='snow')
-		self.label18.place(x=500,y=120)
-		self.label19 = Label(self, text = "Azul",foreground="green2",bg ='snow')
-		self.label19.place(x=500,y=140)
-		self.label20 = Label(self, text = "Verde",foreground="red",bg ='snow')
-		self.label20.place(x=500,y=160)
-		self.label21 = Label(self, text = "Amarillo",foreground="blue2",bg ='snow')
-		self.label21.place(x=500,y=200)
-		self.label22 = Label(self, text = "Azul",foreground="DarkOrange1",bg ='snow')
-		self.label22.place(x=500,y=220)
-		self.label23 = Label(self, text = "Amarrillo",foreground="yellow",bg ='snow')
-		self.label23.place(x=500,y=240)
-		self.label24 = Label(self, text = "Cafe",foreground="pink1",bg ='snow')
-		self.label24.place(x=500,y=260)
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_five_jose)
+		self.bottonsi.place(x=270,y=400)
+		
+	
+	
+	
+	def colrs_secd(self):
+		self.label45 = Label(self, text = "Menciona el \ncolor",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Rojo",foreground="salmon4",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Verde",foreground="red2",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Amarrillo",foreground="green3",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Azul",foreground="blue2",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Rojo",foreground="green1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Verde",foreground="orange1",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "Amarrillo",foreground="red",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Azul",foreground="yellow1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
 		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
 		self.label25.place(x=270,y=350)
 		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
 		self.bottonno.place(x=300,y=400)
 		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_five)
 		self.bottonsi.place(x=270,y=400)
+		
+		
+		
+	def colrs_tre_pepe(self):
+		self.label45 = Label(self, text = "Menciona el \ncolor",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Rojo",foreground="red",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Rojo",foreground="blue2",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Verde",foreground="dark violet",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Amarillo",foreground="pink1",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Verde",foreground="orange1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Amarillo",foreground="brown",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "azul",foreground="green2",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Anaranjado",foreground="yellow1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_six_pepe)
+		self.bottonsi.place(x=270,y=400)
+		
+	
+	
+	def colrs_tre_jose(self):
+		self.label45 = Label(self, text = "Menciona el \ncolor",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Rojo",foreground="red",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Rojo",foreground="blue2",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Verde",foreground="dark violet",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Amarillo",foreground="pink1",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Verde",foreground="orange1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Amarillo",foreground="brown",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "azul",foreground="green2",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Anaranjado",foreground="yellow1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_six_jose)
+		self.bottonsi.place(x=270,y=400)
+	
+	
+	
+	
+	def colrs_tre(self):
+		self.label45 = Label(self, text = "Menciona el \ncolor",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Rojo",foreground="red",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Rojo",foreground="blue2",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Verde",foreground="dark violet",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Amarillo",foreground="pink1",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Verde",foreground="orange1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Amarillo",foreground="brown",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "azul",foreground="green2",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Anaranjado",foreground="yellow1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_six)
+		self.bottonsi.place(x=270,y=400)
+	
+	def colrs_four_pepe(self):
+		self.label45 = Label(self, text = "Menciona el \ncolor",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Café",foreground="green2",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Azul",foreground="blue2",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Anaranjado",foreground="red1",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Verde",foreground="pink1",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Rojo",foreground="orange1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Azul",foreground="brown",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "Café",foreground="green2",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Rojo",foreground="yellow1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_seven_pepe)
+		self.bottonsi.place(x=270,y=400)
+	
+		
+	
+	def colrs_four(self):
+		self.label45 = Label(self, text = "Menciona el \ncolor",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Café",foreground="green2",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Azul",foreground="blue2",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Anaranjado",foreground="red1",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Verde",foreground="pink1",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Rojo",foreground="orange1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Azul",foreground="brown",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "Café",foreground="green2",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Rojo",foreground="yellow1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_seven)
+		self.bottonsi.place(x=270,y=400)	
+	
+	def wrk_col_pepe(self):
+		self.label45 = Label(self, text = "Menciona la \npalabra",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Rojo",foreground="brown",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Verde",foreground="red1",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Azul",foreground="pink1",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Cafe",foreground="orange1",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Amarillo",foreground="blue1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Azul",foreground="brown",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "Anaranjado",foreground="green2",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Rojo",foreground="yellow1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_eight_pepe)
+		self.bottonsi.place(x=270,y=400)	
+	
+	
+	
+	def wrk_col_jose(self):
+		self.label45 = Label(self, text = "Menciona la \npalabra",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Rojo",foreground="brown",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Verde",foreground="red1",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Azul",foreground="pink1",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Cafe",foreground="orange1",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Amarillo",foreground="blue1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Azul",foreground="brown",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "Anaranjado",foreground="green2",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Rojo",foreground="yellow1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_eight_jose)
+		self.bottonsi.place(x=270,y=400)	
+	
+	
+	
+	
+	
+	def wrk_col(self):
+		self.label45 = Label(self, text = "Menciona la \npalabra",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Rojo",foreground="brown",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Verde",foreground="red1",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Azul",foreground="pink1",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Cafe",foreground="orange1",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Amarillo",foreground="blue1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Azul",foreground="brown",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "Anaranjado",foreground="green2",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Rojo",foreground="yellow1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_eight)
+		self.bottonsi.place(x=270,y=400)	
+	
+	
+	def wrk_col_two_pepe(self):
+		self.label45 = Label(self, text = "Menciona la \npalabra",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Anaranjado",foreground="green1",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Azul",foreground="pink1",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Cafe",foreground="blue1",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Rojo",foreground="brown",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Amarillo",foreground="blue1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Azul",foreground="yellow1",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "Verde",foreground="orange1",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Rojo",foreground="blue1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_nine_pepe)
+		self.bottonsi.place(x=270,y=400)
+	
+	
+	def wrk_col_two_jose(self):
+		self.label45 = Label(self, text = "Menciona la \npalabra",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Anaranjado",foreground="green1",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Azul",foreground="pink1",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Cafe",foreground="blue1",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Rojo",foreground="brown",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Amarillo",foreground="blue1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Azul",foreground="yellow1",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "Verde",foreground="orange1",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Rojo",foreground="blue1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_nine_jose)
+		self.bottonsi.place(x=270,y=400)
+	
+	
+	
+	def wrk_col_two(self):
+		self.label45 = Label(self, text = "Menciona la \npalabra",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Anaranjado",foreground="green1",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Azul",foreground="pink1",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Cafe",foreground="blue1",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Rojo",foreground="brown",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Amarillo",foreground="blue1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Azul",foreground="yellow1",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "Verde",foreground="orange1",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Rojo",foreground="blue1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_nine)
+		self.bottonsi.place(x=270,y=400)
+	
+	def wrk_col_tre_pepe(self):
+		self.label45 = Label(self, text = "Menciona la \npalabra",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Azul",foreground="blue1",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Amarillo",foreground="brown",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Cafe",foreground="red1",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Verde",foreground="yellow1",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Amarillo",foreground="orange1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Anaranjado",foreground="yellow1",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "Verde",foreground="brown",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Rosa",foreground="green1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_ten_pepe)
+		self.bottonsi.place(x=270,y=400)
+	
+	
+	def wrk_col_tre(self):
+		self.label45 = Label(self, text = "Menciona la \npalabra",foreground="gray1",bg ='snow')
+		self.label45.place(x=250,y=50)
+		self.label1 = Label(self, text = "Azul",foreground="blue1",bg ='snow')
+		self.label1.place(x=150,y=150)
+		self.label2 = Label(self, text = "Amarillo",foreground="brown",bg ='snow')
+		self.label2.place(x=150,y=170)
+		self.label3 = Label(self, text = "Cafe",foreground="red1",bg ='snow')
+		self.label3.place(x=150,y=190)
+		self.label4 = Label(self, text = "Verde",foreground="yellow1",bg ='snow')
+		self.label4.place(x=150,y=210)
+		self.label5 = Label(self, text = "Amarillo",foreground="orange1",bg ='snow')
+		self.label5.place(x=350,y=150)
+		self.label6 = Label(self, text = "Anaranjado",foreground="yellow1",bg ='snow')
+		self.label6.place(x=350,y=170)
+		self.label7 = Label(self, text = "Verde",foreground="brown",bg ='snow')
+		self.label7.place(x=350,y=190)
+		self.label8 = Label(self, text = "Rosa",foreground="green1",bg ='snow')
+		self.label8.place(x=350,y=210)
+		#boton
+		self.label25 = Label(self, text ="Correcto", bg = "snow",anchor=W)
+		self.label25.place(x=270,y=350)
+		self.bottonno = tk.Button(self,text ="no",bg = "light blue")
+		self.bottonno.place(x=300,y=400)
+		self.bottonsi = tk.Button(self,text ="si",bg = "light blue",command = self.del_all_ten)
+		self.bottonsi.place(x=270,y=400)
+	
+	def finalizar_prueba_pepe(self):
+		label = Label(self, text = "Gacias.",bg = "snow")
+		label.place(x=230,y=10)
+		label6 = Label(self, text ="Seleccione la operación que desea realizar. finalizar o repetir test  ", bg = "snow",anchor=W)
+		label6.place(x=30,y=200)
+		bottonno = tk.Button(self,text ="Repetir",bg = "light blue",command =root.destroy)
+		bottonno.place(x=290,y=250)
+		bottonsi = tk.Button(self,text ="Finalizar",bg = "light blue",command =root.destroy)
+		bottonsi.place(x=170,y=250)
+	
+	def finalizar_prueba_jose(self):
+		label = Label(self, text = "Gacias.",bg = "snow")
+		label.place(x=230,y=10)
+		label6 = Label(self, text ="Seleccione la operación que desea realizar. finalizar o repetir test  ", bg = "snow",anchor=W)
+		label6.place(x=30,y=200)
+		bottonno = tk.Button(self,text ="Repetir",bg = "light blue",command =root.destroy)
+		bottonno.place(x=290,y=250)
+		bottonsi = tk.Button(self,text ="Finalizar",bg = "light blue",command =root.destroy)
+		bottonsi.place(x=170,y=250)
+	
+	
+	def finalizar_prueba(self):
+		label = Label(self, text = "Gacias.",bg = "snow")
+		label.place(x=230,y=10)
+		label6 = Label(self, text ="Seleccione la operación que desea realizar. finalizar o repetir test  ", bg = "snow",anchor=W)
+		label6.place(x=30,y=200)
+		bottonno = tk.Button(self,text ="Repetir",bg = "light blue",command =root.destroy)
+		bottonno.place(x=290,y=250)
+		bottonsi = tk.Button(self,text ="Finalizar",bg = "light blue",command =root.destroy)
+		bottonsi.place(x=170,y=250)
 		
 	#Creamos un lugar par poder imprimir los botones impresos.
 	def coun_num1(self,numero):
@@ -366,7 +1535,8 @@ class Window(Frame):
 			
 	def coun_num2(self,numero):
 		print(numero)
-			
+		
+
 root = Tk()
 app = Window(root)
 root.wm_title("Trail Making Test")
